@@ -10,20 +10,27 @@ In uscita ci si attende un file contenente 0 per le stringhe non accettate e 1 p
 
 ## Convenzioni: 
 Per semplicità i simboli di nastro sono dei char, mentre gli stati sono int. Il carattere "_" indica il simbolo "blank".
+
 La macchina parte sempre dallo stato 0 e dal primo carattere della stringa in ingresso.
+
 Si assume, come al solito, che il nastro sia illimitato sia a sinistra che a destra e che contenga in ogni posizione il carattere "_".
+
 I caratteri "L", "R", "S" vengono usati, come al solito, per il movimento della testina.
+
 Il file di ingresso viene fornito tramite lo standard input, mentre quello in uscita è sullo standard output.
 
-# Struttura del file di ingresso
+## Struttura del file di ingresso
 Il file di ingresso è diviso in 4 parti: una prima parte, che inizia con "tr", contiene le transizioni, una per linea - ogni carattere può essere separato dagli altri da spazi. Per esempio, 0 a c R 1 significa che con la transizione si va dallo stato 0 allo stato 1, leggendo a e scrivendo c. La testina viene spostata a destra (R).
+
 La parte successiva, che inizia con "acc", elenca gli stati di accettazione, uno per linea.
+
 Per evitare problemi di computazioni infinite, nella sezione successiva, che inizia con "max", viene indicato il numero di mosse massimo che si possono fare per accettare una stringa. 
+
 La parte finale, che inizia con "run", è un elenco di stringhe da fornire alla macchina, una per linea.
 
-# Esempio: MT per ww
+## Esempio: MT per ww
 
-tr
+### tr
 0 a a R 0
 0 b b R 0
 0 a c R 1
@@ -41,20 +48,30 @@ tr
 6 c c R 6
 6 _ _ S 7
 
-acc
+### acc
 7
-max
+
+### max
 800
-run
+
+### run
 aababbabaa
+
 aababbabaaaababbabaa
+
 aababbabaaaababbabaab
+
 aababbabaaaababbabaabbaababbabaaaababbabaa
+
 aababbabbaaababbabaabbaababbabaaaababbabaa
 
-Standard output:
+### Standard output:
 1
+
 1
+
 0
+
 U
+
 0
